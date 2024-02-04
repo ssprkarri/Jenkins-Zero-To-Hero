@@ -1,9 +1,7 @@
 pipeline {
   agent {
-    docker {
-      image 'maven:latest'
-     // args '--user root -v /root/maven-dir:/root/.m2/repository'
-    }
+    docker { image 'maven:3.8.1-adoptopenjdk-11' }
+  }
   stages {
     stage('Checkout') {
         steps {
