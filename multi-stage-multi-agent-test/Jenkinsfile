@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'turquoisespace/open-jdk-8'
+      image 'openjdk:latest'
       args '--user root -v /root/.m2/repository:/root/.m2/repository' // mount Docker socket to access the host's Docker daemon
     }
   }
