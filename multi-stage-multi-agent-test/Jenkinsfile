@@ -1,7 +1,6 @@
 pipeline {
   agent {
-    docker { image 'maven:3.8.1-adoptopenjdk-11' }
-    entryPoint 'tail', '-f', '/dev/null'
+    docker { image 'maven:latest' }
   }
   stages {
     stage('Checkout') {
