@@ -11,10 +11,18 @@ pipeline {
             git branch: 'main', url: 'https://github.com/ssprkarri/Jenkins-Zero-To-Hero' 
         }
     }
+    stage('Debug') {
+        steps {
+            script {
+                sh 'ls -R'
+                sh 'cat HelloWorld.java'
+                }
+            }
+        }
     stage('Install JDK') {
         steps {
             script {
-                sh 'apt-get update && apt-get install -y openjdk-11-jdk'
+                sh 'apt-get install -y openjdk-11-jdk'
                 }
             }
         }
