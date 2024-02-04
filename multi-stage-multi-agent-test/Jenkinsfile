@@ -16,7 +16,7 @@ pipeline {
             script {
                 // Build and run java code
                 sh 'javac multi-stage-multi-agent-test/HelloWorld.java'
-                sh 'java HelloWorld'
+                sh 'sh 'java -cp . HelloWorld'
                 }
             }
     }
