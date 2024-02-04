@@ -16,9 +16,18 @@ pipeline {
             script {
                 // Build and run java code
                 sh 'javac multi-stage-multi-agent-test/HelloWorld.java'
-                sh 'java -cp . HelloWorld'
+      //          sh 'java -cp . HelloWorld'
                 }
             }
+    }
+    stage('Debug') {
+        steps {
+            script {
+                sh 'ls -l'
+                sh 'cat ./multi-stage-multi-agent-test/HelloWorld.java'
+                sh 'cat ./multi-stage-multi-agent-test/HelloWorld.class'
+            }
+        }
     }
   }
 }
