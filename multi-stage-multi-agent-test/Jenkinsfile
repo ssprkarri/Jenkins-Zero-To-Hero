@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker { image 'maven:latest' }
-    args '-v /root/.m2:/root/.m2'
+    args '-v /root/maven-dir:/root/.m2/repository'
   }
   stages {
     stage('Checkout') {
