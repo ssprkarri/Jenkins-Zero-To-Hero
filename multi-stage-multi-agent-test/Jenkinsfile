@@ -15,7 +15,8 @@ pipeline {
         steps {
             script {
                 // Build and run java code
-                sh 'mvn install'
+                sh 'javac HelloWorld.java'
+                sh 'java HelloWorld'
                 }
             }
     }
