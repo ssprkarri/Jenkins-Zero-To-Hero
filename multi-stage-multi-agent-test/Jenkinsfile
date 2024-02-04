@@ -1,21 +1,23 @@
 pipeline {
-  agent none
+  agent {
+    docker { image 'maven:3.8.1-adoptopenjdk-11' }
+  }
   stages {
-    stage('Back-end') {
-      agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
-      }
-      steps {
-        sh 'mvn --version'
-      }
+    stage('Checkout') {
+        steps {
+            git branch: 'main', url: 'https://github.com/ssprkarri/Jenkins-Zero-To-Hero' 
+        }
     }
-    stage('Front-end') {
-      agent {
-        docker { image 'node:16-alpine' }
-      }
-      steps {
-        sh 'node --version'
-      }
+    stage('Build and Run') {
+        steps {
+            script {
+                // Compile the Java code
+                sh 'javac HelloWorld.java'
+
+                // Run the Java application
+                sh 'java HelloWorld.java'
+                }
+            }
     }
   }
 }
